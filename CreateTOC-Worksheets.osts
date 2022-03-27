@@ -18,7 +18,7 @@ function main(workbook: ExcelScript.Workbook)
       textToDisplay: "Truy cập " + "'" + worksheet.getName() + "'",
       screenTip: "Di chuyển đến " + "'" + worksheet.getName() + "'",
       documentReference: worksheet.getName() + "!A1"
-    })
+    });
   }
   titleRange.getFormat().getFont().setBold(true);
   titleRange.getUsedRange().getFormat().getFont().setName("Times New Roman");
