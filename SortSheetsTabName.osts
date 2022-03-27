@@ -1,1 +1,18 @@
-{"version":"0.2.0","body":"function main(workbook: ExcelScript.Workbook)\n{\n  let worksheets = workbook.getWorksheets();\n  let shCount: number;\n  let i: number;\n  let j: number;\n  shCount = worksheets.length;\n  for (i = 0; i < shCount; i++)\n  {\n    for (j = i + 1; j < shCount; j++)\n    {\n      if (worksheets[j].getName() < worksheets[i].getName())\n      {\n        worksheets[j].setPosition(i - 1);\n      }    \n    }\n  }\n}","description":"","parameterInfo":"{\"originalParameterOrder\":[],\"parameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"returnSchema\":{\"type\":\"object\",\"properties\":{}}}","apiInfo":"{\"variant\":\"synchronous\",\"variantVersion\":2}"}
+function main(workbook: ExcelScript.Workbook)
+{
+  let worksheets = workbook.getWorksheets();
+  let shCount: number;
+  let i: number;
+  let j: number;
+  shCount = worksheets.length;
+  for (i = 0; i < shCount; i++)
+  {
+    for (j = i + 1; j < shCount; j++)
+    {
+      if (worksheets[j].getName() < worksheets[i].getName())
+      {
+        worksheets[j].setPosition(i - 1);
+      }    
+    }
+  }
+}

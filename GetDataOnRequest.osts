@@ -1,1 +1,20 @@
-{"version":"0.2.0","body":"function main(workbook: ExcelScript.Workbook)\n{\n    let dataSheet = workbook.getWorksheet(\"DataSheet\");\n    let resultSheet = workbook.getWorksheet(\"ResultSheet\");\n    let resultTable = resultSheet.getTable(\"ResultTable\");\n    let tableLastRow = resultTable.getRowCount();\n    if (tableLastRow > 0)\n    {\n      resultTable.getRangeBetweenHeaderAndTotal().delete(ExcelScript.DeleteShiftDirection.up);\n    }\n  let dataSheetRange = dataSheet.getRange(\"A1\").getSurroundingRegion();\n  let data = dataSheetRange.getValues();\n  let reGex = new RegExp(\"CDISC-[0-9]{4}\",\"g\");\n  let requestCodes: RegExpExecArray;\n  while (requestCodes = reGex.exec(\"CDISC-2332, CDISC-2337\"))\n  {\n    let itemRow = data.filter(column => column[0] = requestCodes[0]);\n    resultTable.addRow(-1, itemRow[0]);\n  }\n}","description":"","parameterInfo":"{\"originalParameterOrder\":[],\"parameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"returnSchema\":{\"type\":\"object\",\"properties\":{}}}","apiInfo":"{\"variant\":\"synchronous\",\"variantVersion\":2}"}
+function main(workbook: ExcelScript.Workbook)
+{
+    let dataSheet = workbook.getWorksheet("DataSheet");
+    let resultSheet = workbook.getWorksheet("ResultSheet");
+    let resultTable = resultSheet.getTable("ResultTable");
+    let tableLastRow = resultTable.getRowCount();
+    if (tableLastRow > 0)
+    {
+      resultTable.getRangeBetweenHeaderAndTotal().delete(ExcelScript.DeleteShiftDirection.up);
+    }
+  let dataSheetRange = dataSheet.getRange("A1").getSurroundingRegion();
+  let data = dataSheetRange.getValues();
+  let reGex = new RegExp("CDISC-[0-9]{4}","g");
+  let requestCodes: RegExpExecArray;
+  while (requestCodes = reGex.exec("CDISC-2332, CDISC-2337"))
+  {
+    let itemRow = data.filter(column => column[0] = requestCodes[0]);
+    resultTable.addRow(-1, itemRow[0]);
+  }
+}

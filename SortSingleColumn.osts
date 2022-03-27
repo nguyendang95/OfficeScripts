@@ -1,1 +1,6 @@
-{"version":"0.2.0","body":"function main(workbook: ExcelScript.Workbook)\n{\n  let worksheet = workbook.getActiveWorksheet();\n  let range = worksheet.getRange(\"A2:J14\");\n  range.getSort().apply([{key: 2}], false, true);\n}","description":"","parameterInfo":"{\"originalParameterOrder\":[],\"parameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"returnSchema\":{\"type\":\"object\",\"properties\":{}}}","apiInfo":"{\"variant\":\"synchronous\",\"variantVersion\":2}"}
+function main(workbook: ExcelScript.Workbook)
+{
+  let worksheet = workbook.getActiveWorksheet();
+  let range = worksheet.getRange("A2:J14");
+  range.getSort().apply([{key: 2}], false, true);
+}

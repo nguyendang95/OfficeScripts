@@ -1,1 +1,20 @@
-{"version":"0.2.0","body":"function main(workbook: ExcelScript.Workbook)\n{\n  let selectedRange = workbook.getSelectedRange();\n  let selectedRangeValues = selectedRange.getValues();\n  let rowCount = selectedRange.getRowCount();\n  let columnCount = selectedRange.getColumnCount();\n  for (let i = 0; i < rowCount; i++)\n  {\n    for (let j = 0; j < columnCount; j++)\n    {\n      let cellValue = selectedRangeValues[i][j];\n      if (cellValue.toString().length == 0 || cellValue == \" \")\n      {\n        cellValue = 0;\n        selectedRangeValues[i][j] = cellValue;\n      }\n    }\n  }\n  selectedRange.setValues(selectedRangeValues);\n}","description":"","parameterInfo":"{\"originalParameterOrder\":[],\"parameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"returnSchema\":{\"type\":\"object\",\"properties\":{}}}","apiInfo":"{\"variant\":\"synchronous\",\"variantVersion\":2}"}
+function main(workbook: ExcelScript.Workbook)
+{
+  let selectedRange = workbook.getSelectedRange();
+  let selectedRangeValues = selectedRange.getValues();
+  let rowCount = selectedRange.getRowCount();
+  let columnCount = selectedRange.getColumnCount();
+  for (let i = 0; i < rowCount; i++)
+  {
+    for (let j = 0; j < columnCount; j++)
+    {
+      let cellValue = selectedRangeValues[i][j];
+      if (cellValue.toString().length == 0 || cellValue == " ")
+      {
+        cellValue = 0;
+        selectedRangeValues[i][j] = cellValue;
+      }
+    }
+  }
+  selectedRange.setValues(selectedRangeValues);
+}

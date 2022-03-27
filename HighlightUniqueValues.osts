@@ -1,1 +1,10 @@
-{"version":"0.2.0","body":"function main(workbook: ExcelScript.Workbook)\n{\n  let ConditionalFormatting: ExcelScript.ConditionalFormat;\n  let selectedRange = workbook.getSelectedRange();\n  selectedRange.clearAllConditionalFormats();\n  ConditionalFormatting = selectedRange.addConditionalFormat(ExcelScript.ConditionalFormatType.presetCriteria);\n  ConditionalFormatting.getPreset().getFormat().getFont().setColor(\"red\");\n  ConditionalFormatting.getPreset().getFormat().getFill().setColor(\"pink\");\n  ConditionalFormatting.getPreset().setRule({criterion: ExcelScript.ConditionalFormatPresetCriterion.uniqueValues});\n}","description":"","parameterInfo":"{\"originalParameterOrder\":[],\"parameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"returnSchema\":{\"type\":\"object\",\"properties\":{}}}","apiInfo":"{\"variant\":\"synchronous\",\"variantVersion\":2}"}
+function main(workbook: ExcelScript.Workbook)
+{
+  let ConditionalFormatting: ExcelScript.ConditionalFormat;
+  let selectedRange = workbook.getSelectedRange();
+  selectedRange.clearAllConditionalFormats();
+  ConditionalFormatting = selectedRange.addConditionalFormat(ExcelScript.ConditionalFormatType.presetCriteria);
+  ConditionalFormatting.getPreset().getFormat().getFont().setColor("red");
+  ConditionalFormatting.getPreset().getFormat().getFill().setColor("pink");
+  ConditionalFormatting.getPreset().setRule({criterion: ExcelScript.ConditionalFormatPresetCriterion.uniqueValues});
+}

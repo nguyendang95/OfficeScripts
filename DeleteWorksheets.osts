@@ -1,1 +1,14 @@
-{"version":"0.2.0","body":"function main(workbook: ExcelScript.Workbook)\n{\n  let worksheets = workbook.getWorksheets();\n  let activesheet = workbook.getActiveWorksheet();\n  let wsCount = worksheets.length;\n  let i = 0;\n  for (i = 0; i < wsCount; i++)\n  {\n    if (worksheets[i].getName() != activesheet.getName()) \n    {\n      worksheets[i].delete();\n    }\n  }\n}","description":"","parameterInfo":"{\"originalParameterOrder\":[],\"parameterSchema\":{\"type\":\"object\",\"default\":{},\"x-ms-visibility\":\"internal\"},\"returnSchema\":{\"type\":\"object\",\"properties\":{}}}","apiInfo":"{\"variant\":\"synchronous\",\"variantVersion\":2}"}
+function main(workbook: ExcelScript.Workbook)
+{
+  let worksheets = workbook.getWorksheets();
+  let activesheet = workbook.getActiveWorksheet();
+  let wsCount = worksheets.length;
+  let i = 0;
+  for (i = 0; i < wsCount; i++)
+  {
+    if (worksheets[i].getName() != activesheet.getName()) 
+    {
+      worksheets[i].delete();
+    }
+  }
+}
