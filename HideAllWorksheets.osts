@@ -1,0 +1,14 @@
+function main(workbook: ExcelScript.Workbook)
+{
+  let worksheets = workbook.getWorksheets();
+  let currentSheet = workbook.getActiveWorksheet();
+  let wsCount = worksheets.length;
+  for (let i = 0; i < wsCount; i++)
+  {
+    let worksheet = worksheets[i];
+    if (worksheet.getName() != currentSheet.getName())
+    {
+      worksheet.setVisibility(ExcelScript.SheetVisibility.hidden);
+    }
+  }
+}
